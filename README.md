@@ -64,8 +64,10 @@ The Solution to solve this is to override `create` method that will let `modelCl
 
 Document Summary and Writing By Theethawat Savastham
 <hr/>
-ViewModel and ViewModelFactory - Starter Code
-==================================
+
+
+# ViewModel and ViewModelFactory - Starter Code
+
 
 Use as starter code for the ViewModel codelab.
 
