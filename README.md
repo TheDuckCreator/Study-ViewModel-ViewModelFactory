@@ -1,4 +1,4 @@
-# ViewModel and ViewModelFactory Codelabs Implement
+# ViewModel and ViewModelFactory Codelabs 
 
 Program Bootstrap with Viewmodel and ViewModelFactory Starter Code from Google Codelabs from this link https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/ and the Readme of Starter Code is below my readme.
 
@@ -22,6 +22,12 @@ In Configure Change like screen rotation,etc fragment will be destroy but ViewMo
 If we use viewModel instance using `ViewModel` class, object will create everytime when fragment is re-created. For the better result we can Instance ViewModel using `ViewModelProvider`
 - `ViewModelProvider()` return existing ViewModel (if exists) or create a new one if not exist will Create ViewModel instance in association with given scope
 - `ViewModelProviders.of()` is for Initial ViewModel use that To Create ViewModelProvider
+
+## ViewModelFactory
+Sometimes the value must pass to viewModel at the initialization part, so we have the problem that we pass value and it don't affect UI because the initialization is running out. Factory Method Pattern
+
+Document Summary and Writing By Theethawat Savastham
+
 
 
 ViewModel and ViewModelFactory - Starter Code
