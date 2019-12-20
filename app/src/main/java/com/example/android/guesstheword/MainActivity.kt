@@ -20,29 +20,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * ViewModel is class to storage and Manage UI-related data
- * ViewModelFactory is class to instant and return ViewModel that Survive configure change like
- * screen rotation, screen close or anything can make program run into problem
- * the ViewModelFactory can make the ViewModel use in many configure change.
  * Creates an Activity that hosts all of the fragments in the app
  */
 class MainActivity : AppCompatActivity() {
 
-    /**
-     *Can use savedInstanceState() to save and store device configure like screen rotation
-     * but it's too mush lines of codes and can store  minimum data
-     * It more than useful if use Design under Android Architecture Guideline (lifecycle)
-     * It more better to seperate UI Controller , ViewModel and ViewModel Factory
-     * */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
     }
 
 }
-/**
- * *****Separation of Concern*****
- * UI Controller must only contain logic to handle UI, no decision making logic
- * ViewModel hold data to Display,Simple Calculate and Transformation, decision making
- * ViewModelFactory contains business logic to perform simple calculation and decide of ViewModel
- * */

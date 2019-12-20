@@ -1,3 +1,29 @@
+# ViewModel and ViewModelFactory Codelabs Implement
+
+Program Bootstrap with Viewmodel and ViewModelFactory Starter Code from Google Codelabs from this link https://codelabs.developers.google.com/codelabs/kotlin-android-training-view-model/ and the Readme of Starter Code is below my readme.
+
+## Meaning of ViewModel and ViewModelFactory
+- **ViewModel**  is class to storage and Manage UI-related data
+- **ViewModelFactory** is class to instant and return ViewModel that Survive configure change 
+
+## Managing Configuration Changes Problem
+Configure change like screen rotation, screen close or anything can make program run into problem the ViewModelFactory can make the ViewModel use in many configure change.
+
+For handling th problem of configure changes can use `savedInstanceState()` to save and store device configure like screen rotation but it's too mush lines of codes and can store  minimum data. It more than useful if use Design under Android Architecture Guideline (lifecycle).It more better to seperate UI Controller , ViewModel and ViewModel Factory and make it under *Seperation of Concern*
+
+### Seperation of Concern
+ * UI Controller must only contain logic to handle UI, no decision making logic
+ * ViewModel hold data to Display,Simple Calculate and Transformation, decision making
+ * ViewModelFactory contains business logic to perform simple calculation and decide of ViewModel
+
+In Configure Change like screen rotation,etc fragment will be destroy but ViewModel is still alive
+
+## ViewModelProvider
+If we use viewModel instance using `ViewModel` class, object will create everytime when fragment is re-created. For the better result we can Instance ViewModel using `ViewModelProvider`
+- `ViewModelProvider()` return existing ViewModel (if exists) or create a new one if not exist will Create ViewModel instance in association with given scope
+- `ViewModelProviders.of()` is for Initial ViewModel use that To Create ViewModelProvider
+
+
 ViewModel and ViewModelFactory - Starter Code
 ==================================
 

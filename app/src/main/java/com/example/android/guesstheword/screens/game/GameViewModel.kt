@@ -18,12 +18,6 @@ class GameViewModel :ViewModel(){
         resetList()
         nextWord()
     }
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.i("GameViewModel","Game View Model has destroyed")
-    }
-
     private fun resetList() {
         wordList = mutableListOf(
                 "queen",
@@ -74,5 +68,10 @@ class GameViewModel :ViewModel(){
             score++
         }
         nextWord()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.i("GameViewModel","Game View Model has destroyed")
     }
 }

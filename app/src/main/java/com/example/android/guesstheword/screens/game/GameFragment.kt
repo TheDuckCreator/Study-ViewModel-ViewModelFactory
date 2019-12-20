@@ -33,18 +33,8 @@ import com.example.android.guesstheword.databinding.GameFragmentBinding
 class GameFragment : Fragment() {
 
     //GameViewModel
-    /**
-     * In Configure Change like screen rotation,... fragment will be destroy but
-     * ViewModel is still alive
-     * If use ViewModel instance using ViewModelClass object Will Create Everytime when fragment is re-created
-     * Can Instance ViewModel using ViewModelProvider
-     * ViewModelProvider return existing ViewModel (if exists) or create a new one if not exist will
-     * Create ViewModel instance in association with given scope
-     * ViewModelProviders.of is for Initial ViewModel use that To Create ViewModelProvider
-    */
+
     private lateinit var viewModel:GameViewModel
-
-
 
     private lateinit var binding: GameFragmentBinding
 
@@ -91,9 +81,6 @@ class GameFragment : Fragment() {
         }
         nextWord()
     }
-
-
-
 
     /** Methods for updating the UI **/
 
