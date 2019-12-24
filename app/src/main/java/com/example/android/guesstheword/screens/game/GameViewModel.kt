@@ -8,6 +8,12 @@ import androidx.lifecycle.ViewModel
 class GameViewModel :ViewModel(){
     // The current word
     private val  _word = MutableLiveData<String>()
+
+    // Detect Game Finish use Backing Property write 2 variable
+    private val _eventGameFinish = MutableLiveData<Boolean>()
+    val eventGameFinish:LiveData<Boolean>
+        get() = _eventGameFinish
+
     val word:LiveData<String>
         get() = _word
 
@@ -61,7 +67,10 @@ class GameViewModel :ViewModel(){
      * Moves to the next word in the list
      */
     private fun nextWord() {
-        if (!wordList.isEmpty()) {
+        if (wordList.isEmpty()){
+            onGameFinish()
+        }
+        else {
             //Select and remove a word from the list change word to the next index
             _word.value = wordList.removeAt(0)
         }
@@ -86,5 +95,13 @@ class GameViewModel :ViewModel(){
     override fun onCleared() {
         super.onCleared()
         Log.i("GameViewModel","Game View Model has destroyed")
+    }
+
+    fun onGameFinish(){
+        _eventGameFinish.value  = true
+    }
+
+     fun onGameFinshComplete(){
+        _eventGameFinish.value = false
     }
 }

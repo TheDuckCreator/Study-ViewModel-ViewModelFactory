@@ -61,9 +61,16 @@ class GameFragment : Fragment() {
             binding.scoreText.text = newScore.toString()
         })
 
+
         viewModel.word.observe(this, Observer { newWord ->
             binding.wordText.text = newWord
          })
+
+        // Add Observer
+        viewModel.eventGameFinish.observe(this, Observer<Boolean> { hasFinished ->
+           //If True
+            if(hasFinished) onEngGame()
+        })
 
         binding.correctButton.setOnClickListener { onCorrect() }
         binding.skipButton.setOnClickListener { onSkip() }
@@ -91,15 +98,12 @@ class GameFragment : Fragment() {
 
     /** Methods for updating the UI **/
 
-
-
-
-
     private fun onEngGame(){
         Toast.makeText(activity,"Game just Finished",Toast.LENGTH_SHORT).show()
         val action = GameFragmentDirections.actionGameToScore()
         action.score = viewModel.score.value?:0
         NavHostFragment.findNavController(this).navigate(action)
+        viewModel.onGameFinshComplete()
     }
 
 }
